@@ -1,0 +1,23 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine)
+    {
+        char a[]=ransomNote.toCharArray();
+        char b[]=magazine.toCharArray();
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int i=0,j=0;
+        int count=0;
+        while(i<a.length&&j<b.length) {
+            if(a[i]<b[j])
+                i++;
+            else if(a[i]>b[j])
+                j++;
+            else {
+                i++;
+                j++;
+                count++;
+            }
+        }
+        return count==a.length;
+    }
+}
